@@ -52,4 +52,8 @@ app.get("/register/:id",(req,res)=>{
         fs.writeFileSync('latest.json',JSON.stringify(json_data_as_json))
     }
 })
+app.get('/getlogs',(req,res)=>{
+    res.send(fs.readFileSync("./logfile"))
+}
+)
 app.listen('5000')
