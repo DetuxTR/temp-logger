@@ -3,7 +3,7 @@ import { RiComputerFill } from "react-icons/ri";
 import { useState } from "react";
 
 export default function TempMonitor({ temp,id,name }:{temp:string,id:string,name:string}){
-    var color =[c]
+    
     return(
         
         <div className="container  rounded bg-slate-900  justify-content-center py-6 mx-auto my-6 grid grid-cols-9 ">
