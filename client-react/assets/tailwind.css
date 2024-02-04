@@ -1,8 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300');
 body{
     @apply bg-black;
-    @apply text-white
+    @apply text-white;
+    
+}
+.logo{
+    font-family: 'Comfortaa', sans-serif;
+    font-size: large;
+    font-weight: bolder;
 }
