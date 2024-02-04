@@ -27,7 +27,7 @@ app.get('/gettemp/:temp',(req,res)=> {
         tempdata[2]="name_unknown"
     }
     logger.temp(tempdata,req.ip)}
-    
+    res.send('ok')
 })
 
 app.get('/getlatest',(req,res)=> {
@@ -44,13 +44,14 @@ app.get("/register/:id",(req,res)=>{
         if (requ[1]==undefined){
             requ[1]="name_unknown"
         }
-        json_data_as_json[req.params.id]={
+        json_data_as_json[requ[0]]={
             id:parseInt(requ[0]),
             temp:null,
             name:requ[1],
         }
         fs.writeFileSync('latest.json',JSON.stringify(json_data_as_json))
     }
+    res.send('ok')
 })
 app.get('/getlogs',(req,res)=>{
     res.send(fs.readFileSync("./logfile"))
