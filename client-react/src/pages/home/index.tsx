@@ -34,13 +34,17 @@ export default function HomeParent(){
         }
     }
     return(
-        <><div className="grid grid-cols-3 bg-neutral-900">
+        <>
+        
+
+        <div className="sticky top-0 grid grid-cols-3 bg-neutral-900">
         <div className="logo py-4 px-2">tLogger</div>
         <div className="flex justify-center items-center gap-x-3"><button className={livecolor} onClick={()=>changePage('live')}>Live View</button><button className={viewcolor} onClick={()=>changePage('viewlogs')}>Logs</button></div>
         <div className="flex justify-end items-center px-2"><button onClick={()=>changeText()}>{content}</button></div>
         </div>
-        
         <Outlet/>
+        
+        
         </>
         
     )

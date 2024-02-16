@@ -24,9 +24,12 @@ export default function HomeLive(){
         
 
         <>
+        <div className="grid grid-cols-3 my-2 grid-rows-3  "> 
         {Object.values(data).map((item) => (
         <TempMonitor key={item.id} temp={item.temp} id={item.id} name={item.name} type={item.type}/>
       ))}
+      </div>
         </>
+        
     )
 }
