@@ -1,6 +1,6 @@
 import { RiCelsiusFill } from "react-icons/ri";
 import { RiComputerFill } from "react-icons/ri";
-import { SiMacos } from "react-icons/si";
+import { SiMacos, SiWindows } from "react-icons/si";
 import { SiAndroid } from "react-icons/si";
 import { SiLinux } from "react-icons/si";
 import { useState,useEffect } from "react";
@@ -22,6 +22,10 @@ export default function TempMonitor({ temp,id,name,type }:{temp:string,id:string
         if(type == "ios")
         {
             setTypelogo(<SiApple />)
+        }
+        if(type == "windows")
+        {
+            setTypelogo(<SiWindows/>)
         }
     })
     
