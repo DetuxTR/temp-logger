@@ -4,11 +4,11 @@ import { useEffect , useState} from "react";
 export default function HomeLive(){
     var [data,setData]=useState([])
     useEffect(() => {
-        fetchData(); // İlk veriyi çek
+        fetchData(); 
         
-        const intervalId = setInterval(fetchData, 50); // Her 5 saniyede bir veri çek
+        const intervalId = setInterval(fetchData, 1000); 
         
-        return () => clearInterval(intervalId); // Komponent kaldırıldığında interval'i temizle
+        return () => clearInterval(intervalId); 
       }, []); 
     const fetchData = async () => {
         try {
@@ -25,7 +25,7 @@ export default function HomeLive(){
 
         <>
         {Object.values(data).map((item) => (
-        <TempMonitor key={item.id} temp={item.temp} id={item.id} name={item.name}/>
+        <TempMonitor key={item.id} temp={item.temp} id={item.id} name={item.name} type={item.type}/>
       ))}
         </>
     )

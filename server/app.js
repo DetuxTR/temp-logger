@@ -12,6 +12,7 @@ app.get('/',(req,res) => {
 })
 
 app.get('/gettemp/:temp',(req,res)=> {
+    res.send('ok')
     var tempdata = req.params.temp.split("-")
     console.log(tempdata.length)
     console.log(req.ip)
@@ -27,7 +28,7 @@ app.get('/gettemp/:temp',(req,res)=> {
         tempdata[2]="name_unknown"
     }
     logger.temp(tempdata,req.ip)}
-    res.send('ok')
+    
 })
 
 app.get('/getlatest',(req,res)=> {
@@ -40,14 +41,19 @@ app.get("/register/:id",(req,res)=>{
     if (json_data_as_json[req.params.id]!= null){
         res.send(req.params.id+"is already using please try with another one.")
     }
+    
     else{
         if (requ[1]==undefined){
             requ[1]="name_unknown"
+        }
+        if(requ[2]==undefined){
+            requ[2]=='type_unknown'
         }
         json_data_as_json[requ[0]]={
             id:parseInt(requ[0]),
             temp:null,
             name:requ[1],
+            type:requ[2]
         }
         fs.writeFileSync('latest.json',JSON.stringify(json_data_as_json))
     }
@@ -55,6 +61,15 @@ app.get("/register/:id",(req,res)=>{
 })
 app.get('/getlogs',(req,res)=>{
     res.send(fs.readFileSync("./logfile"))
+})
+app.get('/isreg/:id',(req,res)=>{
+    const json_data_as_json=JSON.parse(fs.readFileSync('latest.json'))
+    if (json_data_as_json[req.params.id]!= null){
+        res.send(true)
+    }
+    else{
+        res.send(false)
+    }
 }
 )
 app.listen('5000')
